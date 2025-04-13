@@ -184,3 +184,36 @@ $right-sidebar-width-narrow: 200px;
 }
 
 
+.intro-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-inline: auto;
+  //flex-wrap: wrap; /* allow items to wrap */
+}
+
+.intro-text {
+  width: 75%;
+}
+
+.intro-image {
+  width: 25%;
+}
+
+/* 📱 Mobile layout */
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column-reverse; /* image on top, text below */
+    align-items: flex-start;        /* optional: align to left instead of center */
+  }
+
+  .intro-text {
+    width: 100%;
+  }
+  .intro-image {
+    width: 100%;
+    max-width: 350px;
+    margin-inline: auto;
+  }
+}
