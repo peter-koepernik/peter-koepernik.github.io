@@ -5,5 +5,182 @@ search: false
 
 @charset "utf-8";
 
+$right-sidebar-width: 200px;
+$right-sidebar-width-narrow: 200px;
+// current max-width is 1280px, see _variables.scss
+//$max-width: 1100px !default;
+
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+
+.page__title {
+  margin-top: 1em;
+}
+
+.archive {
+  p {
+    font-size: 16px;
+  }
+
+//  .archive__subtitle {
+//    font-size: 1rem;
+//    font-weight: 600;
+//  }
+//
+  .archive__item-title {
+    font-size: 0.7rem;
+  }
+//
+//  .page__meta, .entry__meta {
+//    font-size: 0.8rem;
+//  }
+}
+
+// somehow if this is static then the link spans the entire news entry
+.archive__item {
+  a[rel="permalink"] {
+    position: relative;
+  }
+}
+
+.archive__item-excerpt {
+  margin-bottom: 0;
+}
+
+.sidebar {
+  opacity: {{ site.custom.sidebar_opacity_default }};
+
+  &:hover {
+    opacity: {{ site.custom.sidebar_opacity_hover }};
+  }
+}
+
+.author__avatar {
+  img {
+    max-width: 200px;
+  }
+}
+
+// new classes
+
+.news_page {
+  @include breakpoint($large) {
+    float: inline-end;
+    width: calc(100% - #{$right-sidebar-width-narrow});
+    //padding-inline-end: $right-sidebar-width-narrow;
+  }
+
+  @include breakpoint($x-large) {
+    width: 100%; //calc(100% - #{$right-sidebar-width});
+    //padding-inline-end: $right-sidebar-width;
+  }
+
+  .news_page__inner-wrap {
+    float: inline-start;
+    margin-top: 1em;
+    margin-inline: 0;
+    width: 100%;
+    clear: both;
+
+    .news_page__content,
+    .news_page__meta,
+    .news_page__share {
+      position: relative;
+      float: inline-start;
+      margin-inline: 0;
+      width: 100%;
+      clear: both;
+    }
+  }
+}
+
+.news_page__title {
+  margin-top: 0;
+  line-height: 1;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  & + .news_page__meta {
+    margin-top: -0.5em;
+  }
+}
+
+.news_page__lead {
+  font-family: $global-font-family;
+  font-size: $type-size-4;
+}
+
+.news_page__content {
+  h2 {
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $border-color;
+  }
+
+	h1, h2, h3, h4, h5, h6 {
+		.header-link {
+			position: relative;
+			inset-inline-start: 0.5em;
+			opacity: 0;
+			font-size: 0.8em;
+			-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+			-moz-transition: opacity 0.2s ease-in-out 0.1s;
+			-o-transition: opacity 0.2s ease-in-out 0.1s;
+			transition: opacity 0.2s ease-in-out 0.1s;
+		}
+
+		&:hover .header-link {
+			opacity: 1;
+		}
+	}
+}
+
+
+.socials-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em; /* space between items */
+  padding: 0;
+  margin: 0;
+  list-style: none; /* if using <ul> */
+}
+
+.socials-footer a,
+.socials-footer li {
+  /* optional styling */
+  text-decoration: none;
+  background: #eee;
+  padding: 0.3em 0.7em;
+  border-radius: 5px;
+  white-space: nowrap; /* optional: prevents text from breaking inside each link */
+}
+
+.publications-list {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+  font-size: 16px;
+
+  li {
+    margin-bottom: 1.0em;
+  }
+}
+
+//.nav__list {
+.sidebar {
+  position: sticky;
+  margin-top: 5em;
+}
+
+.pdf-frame {
+  width: 85%;
+  aspect-ratio: 1 / 1.4142;
+  //display: block;
+  margin: 0 auto;
+}
+
+

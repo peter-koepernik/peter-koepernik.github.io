@@ -1,0 +1,35 @@
+{% if news.header.teaser %}
+  {% capture teaser %}{{ news.header.teaser }}{% endcapture %}
+{% else %}
+  {% assign teaser = site.teaser %}
+{% endif %}
+
+{% if news.id %}
+  {% assign title = news.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = news.title %}
+{% endif %}
+
+<div class="{{ include.type | default: 'list' }}__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"{% if news.locale %} lang="{{ news.locale }}"{% endif %}>
+    {% if include.type == "grid" and teaser %}
+      <div class="archive__item-teaser">
+        <img src="{{ teaser | relative_url }}" alt="">
+      </div>
+    {% endif %}
+    <div style="display: flex; align-items: center; margin-top: 0.1em; margin-bottom: 0.5em;">
+      <div style="width: 17%; font-size: 0.7rem; text-align: left; margin-left: 1em"> {{ news.date | date: "%d %B %Y" }} </div>
+      <div style="width: 83%;">
+        <h2 class="archive__item-title no_toc" style="margin-top: 0;" itemprop="headline">
+          {% if news.link %}
+            <a href="{{ news.link }}">{{ title }}</a> <a href="{{ news.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+          {% else %}
+            <a href="{{ news.url | relative_url }}" rel="permalink">{{ title }}</a>
+          {% endif %}
+        </h2>
+        <!--{% include page__meta.html type=include.type %}-->
+        {% if news.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ news.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+      </div>
+    </div>
+  </article>
+</div>

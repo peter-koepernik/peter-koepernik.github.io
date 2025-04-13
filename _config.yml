@@ -15,19 +15,19 @@
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
+locale                   : "en-UK"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "Site Title"
-title_separator          : "-"
+title                    : "Peter Koepernik"
+title_separator          : " | "
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
+name                     : "Peter Koepernik"
 description              : "An amazing website."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+masthead_title           : "Home" # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
 enable_copy_code_button  : # true, false (default)
@@ -67,7 +67,7 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-  hide                   : # true, false (default)
+  hide                   : true  #, false (default)
 search                   : # true, false (default)
 search_full_content      : # true, false (default)
 search_provider          : # lunr (default), algolia, google
@@ -87,6 +87,8 @@ bing_site_verification   :
 naver_site_verification  :
 yandex_site_verification :
 baidu_site_verification  :
+
+favicon                  : /assets/images/favicon-3.ico
 
 # Social Sharing
 twitter:
@@ -113,53 +115,55 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  name             : "Peter Koepernik"
+  avatar           : "/assets/images/bio-photo3.jpeg" # path of avatar image
+  bio              : "" # "I am an **amazing** person."
+  location         : "Oxford, UK"
+  email            : # "peter.koepernik@stats.ox.ac.uk"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
+    - label: "Email" #"peter.koepernik@stats.ox.ac.uk"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:peter.koepernik@stats.ox.ac.uk"
+    #- label: "Website"
+    #  icon: "fas fa-fw fa-link"
+    #  # url: "https://your-website.com"
+    #- label: "Twitter"
+    #  icon: "fab fa-fw fa-twitter-square"
+    #  # url: "https://twitter.com/"
+    #- label: "Facebook"
+    #  icon: "fab fa-fw fa-facebook-square"
+    #  # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://github.com/peter-koepernik"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/peter-koepernik"
+    #- label: "Instagram"
+    #  icon: "fab fa-fw fa-instagram"
+    #  # url: "https://instagram.com/"
+
+# custom site configs
+custom:
+  sidebar_opacity_default: 1.0
+  sidebar_opacity_hover: 1.0
 
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
-
+    - label: "peter.koepernik@stats.ox.ac.uk"
+      icon: "fas fa-envelope"
+      url: "mailto:peter.koepernik@stats.ox.ac.uk"
+    - label: "peter-koepernik"
+      icon: "fab fa-github"
+      url: "https://github.com/peter-koepernik"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/peter-koepernik"
+    - label: "Google Scholar"
+      icon: "fas fa-graduation-cap"
+      url: "https://scholar.google.com/citations?user=8P3zHSsAAAAJ&hl=en"
+ 
 
 # Reading Files
 include:
@@ -310,9 +314,28 @@ compress_html:
   ignore:
     envs: development
 
+# Collections (posts exists by default in Jekyll)
+collections:
+  news:
+    output: true
+    permalink: /news/:name/
+  publications:
+    # no output
 
 # Defaults
 defaults:
+  # sidebar navigation
+  - scope:
+      path: ""
+    values:
+      # layout: sidebar
+      # use left sidebar for navigation and don't show the author profile in it
+      sidebar:
+        nav: "main"
+        show_author: false
+      # don't reserve space on the right for toc
+      classes:
+        wide
   # _posts
   - scope:
       path: ""
@@ -324,3 +347,14 @@ defaults:
       comments: # true
       share: true
       related: true
+  # _news
+  - scope:
+      path: ""
+      type: news
+    values:
+      layout: news-single
+      author_profile: true
+      read_time: false
+      comments: # true
+      share: true
+      related: false

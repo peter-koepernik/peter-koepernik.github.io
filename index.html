@@ -1,4 +1,53 @@
 ---
 layout: home
-author_profile: true
+heading: Peter Koepernik
 ---
+
+<!--<h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>Peter Koepernik</h1>
+<hr>-->
+
+<section style="display: flex; align-items: center; gap: 1rem; width: 100%; margin-inline: auto;">
+  <div style="width: 75%;">
+        <p>I'm a final year PhD student in Mathematics at Oxford University specialised in probability theory, and 
+            I'm currently visiting the <a href="https://humancompatible.ai/" rel="nofollow noopener noreferrer">Center for Human-Compatible AI</a> at <a href="https://bair.berkeley.edu/" rel="nofollow noopener noreferrer">Berkeley AI Research</a> 
+            to work on 
+            reinforcement learning and tree search algorithms with 
+            <a href="https://camallen.net/" ref="nofollow noopener noreferrer">Cameron Allen</a>
+            and
+            <a href="https://people.eecs.berkeley.edu/~russell/" rel="nofollow noopener noreferrer">Stuart Russel</a>.
+            
+            <p>
+            Before I started getting interested in AI research, I worked on
+            mathematical population biology with <a rel="nofollow noopener noreferrer" href="https://www.stats.ox.ac.uk/people/alison-etheridge">Alison Etheridge</a>,
+            and on numerical stochastic analysis with <a rel="nofollow noopener noreferrer" href="https://www.maths.ox.ac.uk/people/terry.lyons">Terry Lyons</a>
+            and <a rel="nofollow noopener noreferrer" href="https://people.bath.ac.uk/jmf68/">James Foster</a>.
+            </p>
+
+            <p>
+                Prior to starting my PhD, I obtained a Master's in Mathematics from Oxford University, where I finished at rank 1 of my cohort. Even further in the past,
+                I obtained B.Sc. degrees in Mathematics, Computer Science, and Physics (yes, three separate, full-time degrees; do not recommend if you enjoy free time) from the Karlsruhe Institute
+                of Technology.
+            </p>
+            
+            <p style="font-size: small;"><em>Disclaimer: I created this website recently (13.04.2025), so please withhold your judgement until I've had some time to add more stuff!</em></p>
+            <div class="page__footer-follow" style="font-size: large">
+              <ul class="social-icons">
+                {% if site.footer.links %}
+                  {% for link in site.footer.links %}
+                    {% if link.label and link.url %}
+                      <li><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> <a href="{{ link.url }}" rel="nofollow noopener noreferrer" target="_blank">{{ link.label }}</a></li>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+
+  </div>
+  <div style="width: 25%;">
+    <img src="/assets/images/bio-photo3.jpeg" alt="Photo" style="border-radius: 10%;">
+  </div>
+
+</section>
+
+<!--<hr style="margin-top: 2em; margin-bottom: 0;">-->
+

@@ -2,13 +2,19 @@
 layout: default
 ---
 
+<!-- overlay image (optional) -->
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% elsif page.header.video.id and page.header.video.provider %}
   {% include page__hero_video.html %}
 {% endif %}
 
-{% assign breadcrumbs_enabled = site.breadcrumbs %}
+<!-- breadcrumbs (as in a line at the top of the form Home / News / Paper Accepted at XY!) -->
+{% unless paginator %}
+  {% include breadcrumbs.html %}
+{% endunless %}
+
+<!--{% assign breadcrumbs_enabled = site.breadcrumbs %}
 {% if page.breadcrumbs != null %}
   {% assign breadcrumbs_enabled = page.breadcrumbs %}
 {% endif %}
@@ -17,30 +23,28 @@ layout: default
     {% include breadcrumbs.html %}
   {% endunless %}
 {% endif %}
+-->
 
 <div id="main" role="main">
-  {% include sidebar.html %}
-
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+  <article class="news_page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
-    <div class="page__inner-wrap">
+    <div class="news_page__inner-wrap">
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           {% if page.title -%}
-          <h1 id="page-title" class="page__title" itemprop="headline">
+          <h1 id="page-title" class="news_page__title" itemprop="headline">
             <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
           </h1>
-          <hr>
           {%- endif %}
           {% include page__meta.html %}
         </header>
       {% endunless %}
 
-      <section class="page__content" itemprop="text">
+      <section class="news_page__content" itemprop="text">
         {% if page.toc %}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
             <nav class="toc">
@@ -53,9 +57,9 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
-      <footer class="page__meta">
+      <footer class="news_page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+          <h4 class="news_page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
         {% include page__taxonomy.html %}
         {% include page__date.html %}

@@ -1,20 +1,54 @@
 ---
-layout: archive
+layout: default
 ---
 
-{{ content }}
-
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
 {% endif %}
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% include documents-collection.html entries=posts type=entries_layout %}
+<!-- if you want breadcrumbs, include breadcrumbs.html here -->
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+  <!--<div class="archive" style="width: 75%; float: unset; margin-inline: auto;">-->
+  <div class="archive">
+
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+      <h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ page.heading | default: page.title }}</h1>
+    {% endunless %}
+    <hr>
+
+    {{ content }}
+
+    <!--
+    <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+
+    {% if paginator %}
+      {% assign posts = paginator.posts %}
+    {% else %}
+      {% assign posts = site.posts %}
+    {% endif %}
+
+    {% assign entries_layout = page.entries_layout | default: 'list' %}
+    <div class="entries-{{ entries_layout }}">
+      {% include documents-collection.html entries=posts type=entries_layout %}
+    </div>
+
+    {% include paginator.html %}
+    -->
+
+    <!-- to enable "recent news", uncomment this and reinsert ther % signs
+    <hr>
+    <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent News" }}</h3>
+
+    { assign news = site.news %}
+    { assign news_entries_layout = page.entries_layout | default: 'list' %}
+    <div class="entries-{{ news_entries_layout }}">
+      { include news-collection.html entries=news type=entries_layout %}
+    </div>
+  -->
+  </div>
 </div>
 
-{% include paginator.html %}

@@ -1,0 +1,13 @@
+{% assign entries = include.entries %}
+
+{% if include.sort_by %}
+  {% assign entries = entries | sort: include.sort_by %}
+{% endif %}
+
+{% if include.sort_order == 'reverse' %}
+  {% assign entries = entries | reverse %}
+{% endif %}
+
+{%- for news in entries -%}
+  {% include news-archive-single.html type=include.type %}
+{%- endfor -%}
