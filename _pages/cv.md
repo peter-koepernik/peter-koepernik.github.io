@@ -1,6 +1,6 @@
 ---
 layout: archive
-permalink: /cv
+permalink: /cv/
 title: "CV"
 ---
 
