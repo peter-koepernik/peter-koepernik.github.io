@@ -202,7 +202,7 @@ $right-sidebar-width-narrow: 200px;
 }
 
 /* 📱 Mobile layout */
-@media (max-width: 768px) {
+@media (max-width: $small) {
   .intro-section {
     flex-direction: column-reverse; /* image on top, text below */
     align-items: flex-start;        /* optional: align to left instead of center */
