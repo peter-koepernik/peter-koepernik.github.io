@@ -45,10 +45,12 @@
   {% endif %}
 {% endif %}
 
+
+
 <meta property="og:type" content="{{ og_type }}">
 <meta property="og:locale" content="{{ site.locale | replace: "-", "_" | default: "en_US" }}">
 <meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:title" content="{{ page_title }}">
+<meta property="og:title" content="{{ seo_title }}">
 <meta property="og:url" content="{{ canonical_url }}">
 
 {% if seo_description %}
@@ -59,11 +61,13 @@
   <meta property="og:image" content="{{ page_large_image }}">
 {% elsif page_teaser_image %}
   <meta property="og:image" content="{{ page_teaser_image }}">
+{% else %}
+  <meta property="og:image" content="https://peter.koepernik.net/assets/images/bio-photo3.jpeg">
 {% endif %}
 
 {% if site.twitter.username %}
   <meta name="twitter:site" content="@{{ site.twitter.username | replace: "@", "" }}">
-  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:title" content="{{ seo_title }}">
   <meta name="twitter:description" content="{{ seo_description }}">
   <meta name="twitter:url" content="{{ canonical_url }}">
 
@@ -74,6 +78,8 @@
     <meta name="twitter:card" content="summary">
     {% if page_teaser_image %}
       <meta name="twitter:image" content="{{ page_teaser_image }}">
+    {% else %}
+      <meta name="twitter:image" content="https://peter.koepernik.net/assets/images/bio-photo3.jpeg">
     {% endif %}
   {% endif %}
 
