@@ -4,6 +4,7 @@ permalink: /publications/
 title: "Publications"
 ---
 
+<div>
 Also check my <a href="https://scholar.google.com/citations?user=8P3zHSsAAAAJ&hl=en" itemprop="sameAs" rel="nofollow noopener noreferrer me" target="_blank">Google Scholar</a>,
 since I might not always keep this list up-to-date.
 
@@ -32,3 +33,4 @@ since I might not always keep this list up-to-date.
   {% endfor %}
 </ul>
 <p style="font-size: medium; font-style: italic; margin-top: 0;">*Main contributor. In mathematical publications, authors are always ordered alphabetically.</p>
+</div>

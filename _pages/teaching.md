@@ -4,6 +4,7 @@ permalink: /teaching/
 title: "Teaching"
 ---
 
+<div>
 I really like teaching! 
 And since universities in Germany allow undergraduates to teach other undergraduates, I could start early and do lots of it.
 <!--I started teaching tutorials in my second year of under
@@ -26,6 +27,8 @@ Here is an incomplete list of specific modules I've taught:
 
 These range across large group settings (around twenty students) to small groups (two or three), to one-on-one tutorials.
 I've also marked exams, led undergraduate admission interviews, and desgined and taught tailored courses for international visiting students.
+
+</div>
 
 <!--Stats:
 Applied Probability (2021/22, 22/23, 23/24)

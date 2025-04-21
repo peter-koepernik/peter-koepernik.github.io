@@ -9,7 +9,9 @@ title: "CV"
 </iframe>-->
 
 
+<div style="margin-bottom: 1em;">
 <a href="/assets/files/cv.pdf" target="_blank">Click here</a> to open in new tab.
+</div>
 
 <iframe class="pdf-frame" src="/assets/files/cv.pdf#navpanes=0&zoom=page-width">
   This browser does not support embedded pdf's.

@@ -10,6 +10,8 @@ main:
      url: "/teaching/"
    - title: "CV"
      url: "/cv/"
+   - title: "Anki Deck"
+     url: "/anki/"
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"

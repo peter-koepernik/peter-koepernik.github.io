@@ -20,7 +20,7 @@ $right-sidebar-width-narrow: 200px;
 }
 
 .archive {
-  p {
+  div {
     font-size: 16px;
   }
 
@@ -216,4 +216,127 @@ $right-sidebar-width-narrow: 200px;
     max-width: 350px;
     margin-inline: auto;
   }
+}
+
+/* --- Start of Anki Browser Specific Styles --- */
+
+/* Container for the whole browser - This rule defines the boundary */
+.anki-browser-container {
+    max-width: 800px;
+    width: 95%;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    /* Add any other styles specific JUST to the container itself */
+
+    .card-display {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 1.5em;
+        background-color: #ffffff;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-section {
+        padding: 1.5em;
+        text-align: left; //center;
+        //min-height: 100px;
+        overflow: auto;
+        max-height: 60vh;
+    
+        mjx-container { /* Target the container */
+          /* Ensure it flows inline by default (usually MathJax handles this) */
+          display: inline-block; /* Or let MathJax default handle it */
+          max-width: 100%; /* Still useful for large inline elements */
+          //vertical-align: middle; /* Often helps align inline math with text */
+        
+          svg {
+             /* Remove display: block; */
+             /* display: block; */ /* REMOVED or COMMENTED OUT */
+             max-width: 100%; /* Keep this */
+             //vertical-align: middle; /* Helps alignment */
+          }
+        }
+      
+        /* You might need specific rules for DISPLAY math if removing 'display: block' causes centering issues for them */
+        mjx-container[display="true"] { /* Target display math containers specifically */
+          display: block; /* Ensure display math is block */
+          margin: 1em auto; /* Center display math using auto margins */
+          /* text-align: center; */ /* Might not be needed if margin: auto is used */
+        }
+      
+        /* Original rule for MathJax 2 compatibility or general display math centering */
+        /* This might also need adjustment depending on MathJax output */
+        .MathJax_Display {
+          /* Ensure display math behaves like a block */
+          display: block;
+          margin: 1em auto !important; /* Center display math */
+        }
+    }
+
+    /* .anki-browser-container .card-front { } */ /* Add specific overrides if needed */
+    /* .anki-browser-container .card-back { } */  /* Add specific overrides if needed */
+
+    .card-separator {
+        border: none;
+        border-top: 1px solid #eee;
+        margin: 0;
+    }
+
+    .card-navigation {
+      /* --- Add these Flexbox properties --- */
+      display: flex;           /* Enable Flexbox layout */
+      justify-content: center; /* Center items horizontally */
+      align-items: center;     /* Align items vertically (useful if they wrap) */
+      flex-wrap: wrap;         /* Allow items to wrap to the next line if needed */
+      gap: 0.5em;              /* Optional: Adds space between items (replaces margins) */
+      /* --- End Flexbox properties --- */
+    
+      /* Remove text-align if using flexbox for centering */
+      /* text-align: center; */ /* No longer needed for centering flex items */
+      margin-top: 1em; /* Keep existing top margin */
+      margin-bottom: 1em; /* Keep existing top margin */
+    }
+
+    .card-navigation button {
+        padding: 0.5em 1em;
+        margin: 0 0.5em;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+    }
+
+    .card-navigation button:hover {
+        background-color: #e0e0e0;
+    }
+
+    .card-navigation button:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    .card-navigation input[type="number"] {
+        width: 70px;
+        padding: 0.4em;
+        text-align: right;
+        margin: 0 0.2em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Now this specific error message style only applies INSIDE the anki browser */
+    .error-message {
+        color: #d9534f;
+        background-color: #f2dede;
+        border: 1px solid #ebccd1;
+        padding: 1em;
+        margin-top: 1em;
+        border-radius: 4px;
+        text-align: center;
+    }
 }
