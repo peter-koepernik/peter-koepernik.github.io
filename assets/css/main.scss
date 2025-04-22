@@ -198,7 +198,8 @@ $right-sidebar-width-narrow: 200px;
 //}
 
 .intro-image {
-  min-width: 300px;
+  min-width: 280px;
+  max-width: 280px;
 }
 
 // Mobile layout
@@ -213,7 +214,7 @@ $right-sidebar-width-narrow: 200px;
   }
   .intro-image {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     margin-inline: auto;
   }
 }
