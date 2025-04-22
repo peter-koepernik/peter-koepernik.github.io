@@ -2,6 +2,8 @@
 layout: archive
 permalink: /cv/
 title: "CV"
+classes:
+  wide
 ---
 
 <!--<embed src="/publications/gp-regression.pdf" width="100%" type="application/pdf">-->
