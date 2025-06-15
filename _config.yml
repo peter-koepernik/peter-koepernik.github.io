@@ -116,7 +116,7 @@ analytics:
 # Site Author
 author:
   name             : "Peter Koepernik"
-  avatar           : "/assets/images/bio-photo3.jpeg" # path of avatar image
+  avatar           : "/assets/images/bio-photo4.jpeg" # path of avatar image
   bio              : "" # "I am an **amazing** person."
   location         : "Oxford, UK"
   email            : # "peter.koepernik@stats.ox.ac.uk"
