@@ -27,9 +27,10 @@ since I might not always keep this list up-to-date.
       <em> {{ pub.venue }}</em>, {{ pub.date | date: "%Y" }}.
       <br>
       <!--
-      -->{% if pub.paper-url %} [<a href="{{ pub.paper-url }}" rel="nofollow noopener noreferrer" target="_blank">link</a>]{% endif %}<!--
+      -->{% if pub.paper-url %} [<a href="{{ pub.paper-url }}" rel="nofollow noopener noreferrer" target="_blank">url</a>]{% endif %}<!--
       -->{% if pub.pdf-url %} [<a href="{{ pub.pdf-url | relative_url }}" rel="nofollow noopener noreferrer" target="_blank">pdf</a>]{% endif %}<!--
       -->{% if pub.talk-url %} [<a href="{{ pub.talk-url | relative_url }}" rel="nofollow noopener noreferrer" target="_blank">talk</a>]{% endif %}<!--
+      -->{% if pub.poster-url %} [<a href="{{ pub.poster-url | relative_url }}" rel="nofollow noopener noreferrer" target="_blank">poster</a>]{% endif %}<!--
       -->
     </li>
   {% endfor %}
